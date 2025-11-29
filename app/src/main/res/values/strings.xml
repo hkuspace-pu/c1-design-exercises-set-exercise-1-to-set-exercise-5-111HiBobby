@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">COMP2000-Software-Engineering-2-Assessment-1</string>
+    <string name="menu_item_image">Menu Item Image</string>
+    <string name="select_image">Select Image</string>
+    <string name="item_name">Item Name</string>
+    <string name="item_price">Item Price</string>
+    <string name="save">Save</string>
+
+    <!-- Reservation Strings -->
+    <string name="customer_name">Customer Name</string>
+    <string name="date_yyyy_mm_dd">Date (YYYY-MM-DD)</string>
+    <string name="time_hh_mm">Time (HH:MM)</string>
+    <string name="table_number">Table Number</string>
+</resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This is the layout for our "Add Reservation" screen. It's a simple form for staff
+    to enter the details for a new booking.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- A simple indicator to show the user where they are in the process. -->
+    <TextView
+        android:id="@+id/step_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Step 1 of 3" />
+
+    <!-- The input field for the customer's name. -->
+    <EditText
+        android:id="@+id/customer_name_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/customer_name"
+        android:inputType="textPersonName|textCapWords" />
+
+    <!--
+        This looks like a text field, but it's a TextView. We use it as a large, tappable
+        area to bring up the date picker dialog. It's much nicer than making users type the date.
+    -->
+    <TextView
+        android:id="@+id/date_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/date_yyyy_mm_dd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:padding="12dp" />
+
+    <!-- Same idea as the date picker, but for the time. -->
+    <TextView
+        android:id="@+id/time_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/time_hh_mm"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:padding="12dp" />
+
+    <!-- The input field for the table number. -->
+    <EditText
+        android:id="@+id/table_number_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/table_number"
+        android:inputType="number" />
+
+    <!-- The button to save the new reservation. -->
+    <Button
+        android:id="@+id/save_button"
+        style="@style/AppTheme.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/save" />
+
+</LinearLayout>

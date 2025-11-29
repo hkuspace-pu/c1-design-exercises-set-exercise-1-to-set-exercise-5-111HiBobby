@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This is the layout for our "Add Menu Item" screen. It's just a simple, vertical
+    form for the user to fill out.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AddMenuItemActivity">
+
+    <!-- A spot to show a preview of the image the user selected. -->
+    <ImageView
+        android:id="@+id/menu_item_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/menu_item_image"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <!-- The button to open the gallery and pick an image. -->
+    <Button
+        android:id="@+id/select_image_button"
+        style="@style/AppTheme.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/select_image" />
+
+    <!-- The input field for the item's name. -->
+    <EditText
+        android:id="@+id/menu_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/item_name"
+        android:inputType="textCapWords" />
+
+    <!-- The input field for the item's price. -->
+    <EditText
+        android:id="@+id/menu_item_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/item_price"
+        android:inputType="numberDecimal" />
+
+    <!-- The button to save the new item. -->
+    <Button
+        android:id="@+id/save_button"
+        style="@style/AppTheme.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/save" />
+
+</LinearLayout>

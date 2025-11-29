@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This is the layout for the reservation management screen. A CoordinatorLayout is a good choice here
+    as it helps manage the relationship between the app bar and our scrolling list.
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ManageReservationsActivity">
+
+    <!-- The standard app bar at the top. -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Our toolbar, which just holds the screen title. -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Manage Reservations" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--
+        This is where the list of reservations will be shown. The layout_behavior attribute is the
+        magic that makes the list scroll nicely under the app bar.
+    -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reservations_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/list_item_reservation" />
+
+    <!--
+        The little "plus" button for adding a new reservation. It sits in the bottom-right corner,
+        right where users expect it.
+    -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_reservation_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:contentDescription="Add new reservation"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

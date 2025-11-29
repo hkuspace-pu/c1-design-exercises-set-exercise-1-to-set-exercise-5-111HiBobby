@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This is the layout for the staff dashboard. It's a simple hub with a couple of buttons
+    to get to the main features.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StaffDashboardActivity">
+
+    <!-- The main title for the screen. -->
+    <TextView
+        android:id="@+id/dashboard_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="80dp"
+        android:text="Staff Dashboard"
+        android:textColor="@android:color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- The button to go to the menu management screen. -->
+    <Button
+        android:id="@+id/manage_menu_button"
+        style="@style/AppTheme.Button"
+        android:layout_marginTop="40dp"
+        android:text="Manage Menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_title" />
+
+    <!-- The button to go to the reservation management screen. -->
+    <Button
+        android:id="@+id/manage_reservations_button"
+        style="@style/AppTheme.Button"
+        android:layout_marginTop="24dp"
+        android:text="Manage Reservations"
+        app:layout_constraintEnd_toEndOf="@+id/manage_menu_button"
+        app:layout_constraintStart_toStartOf="@id/manage_menu_button"
+        app:layout_constraintTop_toBottomOf="@id/manage_menu_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
