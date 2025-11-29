@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This is the layout for our "Edit Reservation" screen. It's pretty much the same as the add screen,
+    which is good for consistency. It'll just be pre-filled with the existing reservation's info.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- A simple step indicator. -->
+    <TextView
+        android:id="@+id/step_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Step 1 of 3" />
+
+    <!-- The field for the customer's name. -->
+    <EditText
+        android:id="@+id/customer_name_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/customer_name"
+        android:inputType="textPersonName|textCapWords" />
+
+    <!-- The text view that we use to pop up the date picker. -->
+    <TextView
+        android:id="@+id/date_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/date_yyyy_mm_dd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:padding="12dp" />
+
+    <!-- The text view for the time picker. -->
+    <TextView
+        android:id="@+id/time_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/time_hh_mm"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:padding="12dp" />
+
+    <!-- The field for the table number. -->
+    <EditText
+        android:id="@+id/table_number_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/table_number"
+        android:inputType="number" />
+
+    <!-- The button to save the changes. -->
+    <Button
+        android:id="@+id/save_button"
+        style="@style/AppTheme.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/save" />
+
+</LinearLayout>

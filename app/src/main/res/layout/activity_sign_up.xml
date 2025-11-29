@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This is the layout for our sign-up screen. It's a pretty standard form, but with a few nice
+    touches like the password strength meter.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".SignUpActivity">
+
+    <!-- The main title of the screen. -->
+    <TextView
+        android:id="@+id/create_account_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="80dp"
+        android:text="Create an\nAccount"
+        android:textColor="@android:color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- The email input field, using the nice Material Design outlined style. -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_account_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- The password field, also with the outlined style and a visibility toggle. -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Password"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintEnd_toEndOf="@id/email_input_layout"
+        app:layout_constraintStart_toStartOf="@id/email_input_layout"
+        app:layout_constraintTop_toBottomOf="@id/email_input_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--
+        This little group of views is our password strength indicator.
+        It's hidden until the user starts typing a password.
+    -->
+    <LinearLayout
+        android:id="@+id/password_strength_indicator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/password_input_layout"
+        app:layout_constraintStart_toStartOf="@id/password_input_layout"
+        app:layout_constraintTop_toBottomOf="@id/password_input_layout"
+        tools:visibility="visible">
+
+        <!-- The progress bar that shows how strong the password is. -->
+        <ProgressBar
+            android:id="@+id/password_strength_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:max="100" />
+
+        <!-- The text label (e.g., "Weak", "Strong"). -->
+        <TextView
+            android:id="@+id/password_strength_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#FF0000"
+            tools:text="Weak" />
+    </LinearLayout>
+
+    <!-- The field for confirming the password. -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/confirm_password_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Confirm Password"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintEnd_toEndOf="@id/password_input_layout"
+        app:layout_constraintStart_toStartOf="@id/password_input_layout"
+        app:layout_constraintTop_toBottomOf="@id/password_strength_indicator">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/confirm_password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- The main sign-up button. -->
+    <Button
+        android:id="@+id/signup_button"
+        style="@style/AppTheme.Button"
+        android:layout_marginTop="32dp"
+        android:alpha="0.5"
+        android:enabled="false"
+        android:text="Sign Up"
+        app:layout_constraintEnd_toEndOf="@id/confirm_password_input_layout"
+        app:layout_constraintStart_toStartOf="@id/confirm_password_input_layout"
+        app:layout_constraintTop_toBottomOf="@id/confirm_password_input_layout" />
+
+    <!-- The spinner we show in the button when the user is signing up. -->
+    <ProgressBar
+        android:id="@+id/loading_progressbar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/signup_button"
+        app:layout_constraintEnd_toEndOf="@id/signup_button"
+        app:layout_constraintStart_toStartOf="@id/signup_button"
+        app:layout_constraintTop_toTopOf="@id/signup_button" />
+
+    <!-- The text that lets the user go back to the login screen. -->
+    <TextView
+        android:id="@+id/login_prompt_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Already have an account? Log in"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
